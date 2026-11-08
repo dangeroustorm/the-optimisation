@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tauto OS — Optimization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============ FIRST-RUN SETUP ============ -->
+    <div id="setup-screen" class="hidden">
+        <div class="setup-bg"><div class="setup-blob sb1"></div><div class="setup-blob sb2"></div><div class="setup-blob sb3"></div></div>
+        <div class="setup-box">
+            <div class="setup-brand">AXIOM DYNAMICS · TAUTO OS 2.4 · FIRST BOOT</div>
+            <h1 class="setup-title" id="setup-title">欢迎回来</h1>
+            <p class="setup-sub" id="setup-sub">在登录之前，请完成工作站初始化。</p>
+
+            <div class="setup-step">
+                <div class="setup-label" id="setup-lang-label">界面语言 / Interface language</div>
+                <div class="setup-lang">
+                    <button class="setup-opt" data-setup-lang="zh">中文</button>
+                    <button class="setup-opt" data-setup-lang="en">English</button>
+                </div>
+            </div>
+
+            <div class="setup-step">
+                <div class="setup-label" id="setup-fs-label">显示模式 / Display mode</div>
+                <button class="setup-opt wide" id="setup-fullscreen">进入全屏 / Enter fullscreen</button>
+            </div>
+
+            <div class="setup-step">
+                <div class="setup-label" id="setup-name-label">选择你的名字 / Choose your name</div>
+                <div class="name-grid" id="name-grid"></div>
+            </div>
+
+            <button class="setup-continue" id="setup-continue" disabled>继续 / Continue</button>
+            <div class="setup-foot">你的名字会出现在同事的邮件、短信与档案中。 / Your name appears in mail, messages and records.</div>
+        </div>
+    </div>
+
+    <!-- ============ CHAPTER TITLE / LOGIN ============ -->
+    <div id="login-screen" class="hidden">
+        <canvas id="title-art"></canvas>
+        <div class="title-vignette"></div>
+        <button id="login-lang" class="login-lang" title="Language">EN</button>
+        <div class="login-box">
+            <div class="login-brand">AXIOM DYNAMICS · TAUTO OS 2.4</div>
+            <div id="ch-kicker" class="chapter-kicker">第一章</div>
+            <h1 id="ch-title" class="title-large">硅谷，圣何塞</h1>
+            <div class="avatar">👤</div>
+            <h3 class="login-user" id="login-user">玩家：Camille · 欧盟运营</h3>
+            <button id="login-btn">登录 Tauto OS</button>
+            <div class="login-foot" id="login-foot" onclick="devClick()">安全工作站 · 所有活动均被记录 · v2.4.0</div>
+        </div>
+    </div>
+
+    <!-- ============ LOGIN BUFFER ============ -->
+    <div id="loading-screen" class="hidden">
+        <div class="loading-box">
+            <div class="loading-orbit"><span></span><span></span><span></span></div>
+            <div class="loading-text" id="loading-text">正在验证工牌……</div>
+            <div class="loading-sub" id="loading-sub">Verifying credentials</div>
+            <div class="loading-bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ============ DESKTOP ============ -->
+    <div id="desktop" class="hidden">
+        <div id="top-bar">
+            <span id="active-app">System</span>
+            <div class="top-right">
+                <span id="player-chip"></span>
+                <span id="clock">09:00</span>
+                <span id="weather"></span>
+                <span id="location">San Jose</span>
+                <button onclick="openWindow('settings')" title="Settings">⚙️</button>
+            </div>
+        </div>
+
+        <div id="desktop-icons">
+            <div class="icon" data-app="mail" onclick="handleIcon('mail')"><div class="icon-img">📧<span class="dot hidden"></span></div><span>Mail</span></div>
+            <div class="icon" data-app="sync" onclick="handleIcon('sync')"><div class="icon-img">💬<span class="dot hidden"></span></div><span>Sync</span></div>
+            <div class="icon" data-app="editor" onclick="handleIcon('editor')"><div class="icon-img">📝<span class="dot hidden"></span></div><span>Editor</span></div>
+            <div class="icon" data-app="browser" onclick="handleIcon('browser')"><div class="icon-img">🌐<span class="dot hidden"></span></div><span>Browser</span></div>
+            <div class="icon" data-app="lab" onclick="handleIcon('lab')"><div class="icon-img">🧪<span class="dot hidden"></span></div><span>Lab</span></div>
+            <div class="icon" data-app="monitor" onclick="handleIcon('monitor')"><div class="icon-img">💻<span class="dot hidden"></span></div><span>Monitor</span></div>
+        </div>
+
+        <div id="anchors">
+            <div class="note-header">Anchors</div>
+            <div id="note-objective" class="note-objective"></div>
+            <ul id="tasks"></ul>
+            <button id="next-ch" class="hidden btn next-ch-btn" onclick="nextChapter()">Next Chapter</button>
+        </div>
+
+        <div id="win-container"></div>
+        <div id="dock"></div>
+    </div>
+
+    <div id="note-root"></div>
+    <div id="toast-root"></div>
+    <div id="modal-root"></div>
+
+    <script src="engine.js"></script>
+</body>
+</html>
