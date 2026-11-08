@@ -11,7 +11,7 @@
     <div id="setup-screen" class="hidden">
         <div class="setup-bg"><div class="setup-blob sb1"></div><div class="setup-blob sb2"></div><div class="setup-blob sb3"></div></div>
         <div class="setup-box">
-            <div class="setup-brand">AXIOM DYNAMICS · TAUTO OS 2.4 · FIRST BOOT</div>
+            <div class="setup-brand">AXIOM DYNAMICS · TAUTO OS · FIRST BOOT</div>
             <h1 class="setup-title" id="setup-title">欢迎回来</h1>
             <p class="setup-sub" id="setup-sub">在登录之前，请完成工作站初始化。</p>
 
@@ -30,7 +30,7 @@
 
             <div class="setup-step">
                 <div class="setup-label" id="setup-name-label">选择你的名字 / Choose your name</div>
-                <div class="name-grid" id="name-grid"></div>
+                <div class="name-grid two" id="name-grid"></div>
             </div>
 
             <button class="setup-continue" id="setup-continue" disabled>继续 / Continue</button>
@@ -44,13 +44,12 @@
         <div class="title-vignette"></div>
         <button id="login-lang" class="login-lang" title="Language">EN</button>
         <div class="login-box">
-            <div class="login-brand">AXIOM DYNAMICS · TAUTO OS 2.4</div>
-            <div id="ch-kicker" class="chapter-kicker">第一章</div>
-            <h1 id="ch-title" class="title-large">硅谷，圣何塞</h1>
+            <div id="ch-kicker" class="chapter-kicker">第 1 章</div>
+            <h1 id="ch-title" class="title-large">硅谷</h1>
+            <div id="ch-loc" class="chapter-loc">圣荷西，美国</div>
             <div class="avatar">👤</div>
-            <h3 class="login-user" id="login-user">玩家：Camille · 欧盟运营</h3>
-            <button id="login-btn">登录 Tauto OS</button>
-            <div class="login-foot" id="login-foot" onclick="devClick()">安全工作站 · 所有活动均被记录 · v2.4.0</div>
+            <h3 class="login-user" id="login-user">John</h3>
+            <button id="login-btn">登录</button>
         </div>
     </div>
 
@@ -66,10 +65,12 @@
 
     <!-- ============ DESKTOP ============ -->
     <div id="desktop" class="hidden">
+        <canvas id="desktop-art"></canvas>
         <div id="top-bar">
             <span id="active-app">System</span>
             <div class="top-right">
                 <span id="player-chip"></span>
+                <span id="date"></span>
                 <span id="clock">09:00</span>
                 <span id="weather"></span>
                 <span id="location">San Jose</span>
@@ -93,6 +94,10 @@
             <button id="next-ch" class="hidden btn next-ch-btn" onclick="nextChapter()">Next Chapter</button>
         </div>
 
+        <div id="journal-card">
+            <div class="jc-head"><span class="jc-title">Journal</span><span class="jc-dot"></span></div>
+            <div class="jc-body" id="journal-body"></div>
+        </div>
         <div id="win-container"></div>
         <div id="dock"></div>
     </div>
